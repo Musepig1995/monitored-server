@@ -11,6 +11,7 @@ do
 ./get_cpu_usage.sh
 ./get_ip.sh
 php total_diskspace.php
+php arrayGenerator.php
 
 sleep 2
 i=$[$i+1]
