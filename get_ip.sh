@@ -2,4 +2,4 @@
 
 #writes the public ip to a file
 
-echo `hostname -I` > ip.txt
+echo `hostname -I` > gen/ip.txt

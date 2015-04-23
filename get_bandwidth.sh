@@ -15,4 +15,4 @@ let rf="(($r2 - $r1) / 1024) * 8 * 10"
 let tf="(($t2 - $t1) / 1024) * 8 * 10"
 
 #print to csv file (kilobits per second >> download, upload)
-echo $rf,$tf > bandwidth.csv
+echo $rf,$tf > gen/bandwidth.csv

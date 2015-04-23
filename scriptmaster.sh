@@ -13,6 +13,6 @@ do
 php total_diskspace.php
 php arrayGenerator.php
 
-sleep 2
+sleep 1.85 
 i=$[$i+1]
 done

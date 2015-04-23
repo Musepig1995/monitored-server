@@ -9,5 +9,5 @@ TOTAL=`echo $FREE_MEMORY | cut -f2 -d' '`
 
 let USED="($TOTAL - $CURRENT)"
 
-echo $USED,$TOTAL > gen/memory_usage.csv
+echo $USED,$TOTAL > memory_usage.csv
 

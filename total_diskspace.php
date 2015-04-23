@@ -14,7 +14,7 @@ $availableDiskSize = number_format($availableDiskSize, 2);
 //used disk space
 $usedDiskSpace = $diskSize - $availableDiskSize;
 
-$filewriter = fopen("diskspace.csv", "w");
+$filewriter = fopen("gen/diskspace.csv", "w");
 fwrite($filewriter,"$usedDiskSpace,$diskSize");
 fclose($filewriter);
 
