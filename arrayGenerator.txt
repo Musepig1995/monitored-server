@@ -2,9 +2,11 @@
 
 //check if id exists. if so make boolean flag showing so and add it to variable
 $path = "/var/local/gen/server_id.csv";
-$file = fopen($path, "r") or die ("File not found!");
-$serverid = fread($file, filesize($path));
-fclose($file);
+if(file_exists("$path")){
+	$file = fopen($path, "r");
+	$serverid = fread($file, filesize($path));
+	fclose($file);
+}
 
 $path = "/var/local/gen/bandwidth.csv";
 $file = fopen($path, "r") or die ("File not found!");
