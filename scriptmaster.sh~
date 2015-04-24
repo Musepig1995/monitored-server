@@ -10,8 +10,8 @@ do
 ./get_memory_usage.sh
 ./get_cpu_usage.sh
 ./get_ip.sh
-php total_diskspace.txt
-php arrayGenerator.txt
+php total_diskspace.php
+php arrayGenerator.php
 
 sleep 1.85 
 i=$[$i+1]
