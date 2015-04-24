@@ -1,0 +1,48 @@
+<?php
+
+$path = "/var/local/gen/server_id.csv";
+$file = fopen($path, "r") or die ("File not found!");
+$serverid = fread($file, filesize($path));
+fclose($file);
+
+$path = "/var/local/gen/bandwidth.csv";
+$file = fopen($path, "r") or die ("File not found!");
+$bandwidth = fread($file, filesize($path));
+fclose($file);
+
+$path = "/var/local/gen/cpu_percentage.txt";
+$file = fopen($path, "r") or die ("File not found!");
+$cpu_percentage = fread($file,filesize($path));
+fclose($file);
+
+$path = "/var/local/gen/diskspace.csv";
+$file = fopen($path, "r") or die("File not found!");
+$diskspace = fread($file, filesize($path));
+fclose($file);
+$new_diskspace = explode(",", $diskspace);
+
+$path = "/var/local/gen/memory_usage.csv";
+$file = fopen($path, "r") or die ("File not found!");
+$memory = fread($file, filesize($path));
+fclose($file);
+$new_memory = explode(",", $memory);
+
+$array = array (
+	"id" => "$serverid",
+	"bandwidth" => "$bandwidth",
+	"cpu" => "$cpu_percentage",
+	"diskspace" => "$new_diskspace[0]",
+	"memory" => "$new_memory[0]" 	
+);
+
+$encoded_array = json_encode($array);
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, "http://harrisonsouth.co.uk/blip/api/servers/$serverid/usage");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $encoded_array);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+
+curl_exec($ch);
+
+?>

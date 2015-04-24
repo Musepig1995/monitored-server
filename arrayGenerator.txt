@@ -1,5 +1,11 @@
 <?php
 
+//check if id exists. if so make boolean flag showing so and add it to variable
+$path = "/var/local/gen/server_id.csv";
+$file = fopen($path, "r") or die ("File not found!");
+$serverid = fread($file, filesize($path));
+fclose($file);
+
 $path = "/var/local/gen/bandwidth.csv";
 $file = fopen($path, "r") or die ("File not found!");
 $bandwidth = fread($file,filesize($path));
@@ -14,6 +20,7 @@ $path = "/var/local/gen/diskspace.csv";
 $file = fopen($path, "r") or die ("File not found!");
 $diskspace = fread($file,filesize($path));
 fclose($file);
+$new_diskspace = explode(",",$diskspace);
 
 $path = "/var/local/gen/ip.txt";
 $file = fopen($path, "r") or die ("File not found!");
@@ -24,6 +31,7 @@ $path = "/var/local/gen/memory_usage.csv";
 $file = fopen($path, "r") or die ("File not found!");
 $memory = fread($file,filesize($path));
 fclose($file);
+$new_memory = explode(",",$memory);
 
 $path = "/var/local/gen/server_name.txt";
 $file = fopen($path, "r") or die ("File not found!");
@@ -38,34 +46,43 @@ fclose($file);
 $array = array (
 	//"bandwidth" => "$bandwidth",
 	//"cpu_percentage" => "$cpu_percentage",
-	"hdsize" => "$diskspace",
+	"hdsize" => "$new_diskspace[1]",
 	"ip" => "$ip",
-	"ramsize" => "$memory",
+	"ramsize" => "$new_memory[1]",
 	"name" => "$servername",
 	"location" => "$serverlocation",
 );
 
+if(isset($serverid)){
+	$array['id'] = $serverid;
+}
 
 $encoded_array = json_encode($array);
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, "http://www.harrisonsouth.co.uk/blip/api/servers");
+if(isset($serverid)){	
+	curl_setopt($ch, CURLOPT_URL, "http://harrisonsouth.co.uk/blip/api/servers/$serverid");
+}else{
+	curl_setopt($ch, CURLOPT_URL, "http://www.harrisonsouth.co.uk/blip/api/servers");
+}
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $encoded_array);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
-if(empty($result)){
-	echo "Data not correctly entered.";
-} else {
-	echo $result . "\n";
-	$filewriter = fopen("/var/local/gen/server_id.csv", "w");
-	fwrite($filewriter, "$result");
-	fclose($filewriter);
+
+if(!isset($serverid)){
+
+	$result = curl_exec($ch);
+	if(empty($result)){
+		echo "Data not correctly entered.";
+	} else {
+		echo $result . "\n";
+		$filewriter = fopen("/var/local/gen/server_id.csv", "w");
+		fwrite($filewriter, "$result");
+		fclose($filewriter);
+	}
+}else {
+	$result = curl_exec($ch);
+	echo $result;
 }
 
-
-//print_r($array);
-
-
-	
 ?>
