@@ -6,12 +6,12 @@ i="0"
 while [ $i -lt 30 ]
 do
 
-./get_bandwidth.sh
-./get_memory_usage.sh
-./get_cpu_usage.sh
-./get_ip.sh
-php total_diskspace.txt
-php arrayGenerator.txt
+/var/local/get_bandwidth.sh
+/var/local/get_memory_usage.sh
+/var/local/get_cpu_usage.sh
+/var/local/get_ip.sh
+php /var/local/total_diskspace.txt
+php /var/local/arrayGenerator.txt
 
 sleep 1.85 
 i=$[$i+1]
