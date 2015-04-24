@@ -58,9 +58,14 @@ if(empty($result)){
 	echo "Data not correctly entered.";
 } else {
 	echo $result . "\n";
+	$filewriter = fopen("/var/local/gen/server_id.csv", "w");
+	fwrite($filewriter, "$result");
+	fclose($filewriter);
 }
 
 
 //print_r($array);
+
+
 	
 ?>
