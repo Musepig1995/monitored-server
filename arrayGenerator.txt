@@ -25,13 +25,24 @@ $file = fopen($path, "r") or die ("File not found!");
 $memory = fread($file,filesize($path));
 fclose($file);
 
+$path = "/var/local/gen/server_name.txt";
+$file = fopen($path, "r") or die ("File not found!");
+$servername = fread($file,filesize($path));
+fclose($file);
+
+$path = "/var/local/gen/server_location.txt";
+$file = fopen($path, "r") or die ("File not found!");
+$serverlocation = fread($file,filesize($path));
+fclose($file);
+
 $array = array (
-	"bandwidth" => "$bandwidth",
-	"cpu_percentage" => "$cpu_percentage",
-	"diskspace" => "$diskspace",
+	//"bandwidth" => "$bandwidth",
+	//"cpu_percentage" => "$cpu_percentage",
+	"hdsize" => "$diskspace",
 	"ip" => "$ip",
-	"memory" => "$memory",
-	"id" => "idPlaceholder",
+	"ramsize" => "$memory",
+	"name" => "$servername",
+	"location" => "$serverlocation",
 );
 
 print_r($array);
