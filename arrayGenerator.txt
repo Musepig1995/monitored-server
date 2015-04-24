@@ -45,6 +45,22 @@ $array = array (
 	"location" => "$serverlocation",
 );
 
-print_r($array);
+
+$encoded_array = json_encode($array);
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, "http://www.harrisonsouth.co.uk/blip/api/servers");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $encoded_array);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+if(empty($result)){
+	echo "Data not correctly entered.";
+} else {
+	echo $result . "\n";
+}
+
+
+//print_r($array);
 	
 ?>
