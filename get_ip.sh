@@ -2,4 +2,4 @@
 
 #writes the public ip to a file
 
-echo `hostname -I` > /var/local/gen/ip.txt
+echo `hostname -I` > /var/local/blip/gen/ip.txt

@@ -8,39 +8,39 @@ if(file_exists("$path")){
 	fclose($file);
 }
 
-$path = "/var/local/gen/bandwidth.csv";
+$path = "/var/local/blip/gen/bandwidth.csv";
 $file = fopen($path, "r") or die ("File not found!");
 $bandwidth = fread($file,filesize($path));
 fclose($file);
 
-$path = "/var/local/gen/cpu_percentage.txt";
+$path = "/var/local/blip/gen/cpu_percentage.txt";
 $file = fopen($path, "r") or die ("File not found!");
 $cpu_percentage = fread($file,filesize($path));
 fclose($file);
 
-$path = "/var/local/gen/diskspace.csv";
+$path = "/var/local/blip/gen/diskspace.csv";
 $file = fopen($path, "r") or die ("File not found!");
 $diskspace = fread($file,filesize($path));
 fclose($file);
 $new_diskspace = explode(",",$diskspace);
 
-$path = "/var/local/gen/ip.txt";
+$path = "/var/local/blip/gen/ip.txt";
 $file = fopen($path, "r") or die ("File not found!");
 $ip = fread($file,filesize($path));
 fclose($file);
 
-$path = "/var/local/gen/memory_usage.csv";
+$path = "/var/local/blip/gen/memory_usage.csv";
 $file = fopen($path, "r") or die ("File not found!");
 $memory = fread($file,filesize($path));
 fclose($file);
 $new_memory = explode(",",$memory);
 
-$path = "/var/local/gen/server_name.txt";
+$path = "/var/local/blip/gen/server_name.txt";
 $file = fopen($path, "r") or die ("File not found!");
 $servername = fread($file,filesize($path));
 fclose($file);
 
-$path = "/var/local/gen/server_location.txt";
+$path = "/var/local/blip/gen/server_location.txt";
 $file = fopen($path, "r") or die ("File not found!");
 $serverlocation = fread($file,filesize($path));
 fclose($file);
@@ -78,7 +78,7 @@ if(!isset($serverid)){
 		echo "Data not correctly entered.";
 	} else {
 		echo $result . "\n";
-		$filewriter = fopen("/var/local/gen/server_id.csv", "w");
+		$filewriter = fopen("/var/local/blip/gen/server_id.csv", "w");
 		fwrite($filewriter, "$result");
 		fclose($filewriter);
 	}
