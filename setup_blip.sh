@@ -64,7 +64,7 @@ then
 	echo "$location" > gen/server_location.txt
 
 	crontab -l > tempCronGen
-	echo "* * * * * bash /var/local/scriptmaster.sh" >> tempCronGen
+	echo "* * * * * bash /var/local/blip/scriptmaster.sh" >> tempCronGen
 	crontab tempCronGen
 	rm tempCronGen
 
