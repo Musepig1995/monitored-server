@@ -1,7 +1,7 @@
 <?php
 
 //check if id exists. if so make boolean flag showing so and add it to variable
-$path = "/var/local/gen/server_id.csv";
+$path = "/var/local/blip/gen/server_id.csv";
 if(file_exists("$path")){
 	$file = fopen($path, "r");
 	$serverid = fread($file, filesize($path));

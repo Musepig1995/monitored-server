@@ -68,6 +68,10 @@ then
 	crontab tempCronGen
 	rm tempCronGen
 
+	echo ""
+	echo "Setup complete. Server monitoring now active."
+	echo "Monitoring files can be found in /var/local/blip/ by default"
+
 elif [[ $answer = n ]] ; then
 	echo "Aborting"
 else
