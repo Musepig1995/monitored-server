@@ -2,7 +2,7 @@
 
 if [ "$EUID" -ne 0 ]
 then 
-	echo "FAILED: "
+	echo "FAILED"
 	echo "This script needs to be run as root"
 	exit
 fi
@@ -69,8 +69,8 @@ then
 	rm tempCronGen
 
 	echo ""
-	echo "Setup complete. Server monitoring now active."
 	echo "Monitoring files can be found in /var/local/blip/ by default"
+	echo "Setup complete. Server monitoring now active."
 
 elif [[ $answer = n ]] ; then
 	echo "Aborting"
