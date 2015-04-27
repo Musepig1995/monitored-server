@@ -34,7 +34,7 @@ while [ $i -ne 2 ]; do
 	((i++))
 done
 
-echo -en "$DIFF_USAGE" > /var/local/blip/gen/cpu_percentage.txt
+echo -en "$DIFF_USAGE" > /var/local/blip/cpu_percentage.txt
 
 #footnote
 #inspiration for script found at http://askubuntu.com/questions/450045/get-cpu-usage-in-command

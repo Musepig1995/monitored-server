@@ -6,13 +6,14 @@ i="0"
 while [ $i -lt 30 ]
 do
 
-./get_bandwidth.sh
-./get_memory_usage.sh
-./get_cpu_usage.sh
-./get_ip.sh
-php total_diskspace.php
-php arrayGenerator.php
+	/var/local/blip/get_bandwidth.sh
+	/var/local/blip/get_memory_usage.sh
+	/var/local/blip/get_cpu_usage.sh
+	/var/local/blip/get_ip.sh
+	php /var/local/blip/total_diskspace.txt
+	php /var/local/blip/arrayGenerator.txt
+	php /var/local/blip/send_server_usage.txt
 
-sleep 1.85 
-i=$[$i+1]
+	sleep 1.6 
+	i=$[$i+1]
 done
