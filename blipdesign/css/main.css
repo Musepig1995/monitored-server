@@ -1,0 +1,206 @@
+.right {
+float:right;
+}
+
+.gapabove {
+	margin-top:60px;
+}
+
+.absoluteLeft {	
+	width:100%;
+	position:absolute;
+	left:0px;
+}
+
+.statSquare {
+	margin-top:-400px;
+}
+
+.moveDown {
+	margin-top:45px;
+}
+
+.dark {
+	background-color: black;
+}
+
+.statHeader {
+	height:180px;
+	width:180px;
+	display:inline-block;
+}
+
+.red {
+	background-image:none;
+    background-color: #1E1F1F;
+    display:inline-block;
+    height:100%;
+}
+
+.moveUp {
+	margin-top:-10px;
+}
+
+.wideHover a:hover {
+	margin-right:-15px;
+}
+
+.navbar {
+	 border: 0 !important;
+}
+
+.pillactive a {
+	font-weight:bold;
+	background-color:#303333;
+	margin-right:-15px;
+}
+
+
+.smaller {
+	font-size:18px;
+}
+
+.statistic {
+	font-size:65pt;
+}
+
+.overallTitle {
+	
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight:bold;
+}
+
+.middle {
+	 text-align:center;
+}
+
+.fillDown {
+	height:100%;
+}
+
+.circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+
+}
+
+.type1 {
+    width: 180px;
+    height: 180px;
+    background: #45F591;
+}
+
+.onCircle {
+    
+    
+    background: #45F591;
+}
+
+.statSpan {
+	font-size:26px;
+}
+
+.offCircle {
+   
+    background: #ccc;
+
+}
+
+.statusCircle {
+	 width: 38px;
+    height: 38px;
+    margin-top:10px;
+}
+
+.statCircle {
+	width: 80px;
+    height: 80px;
+	color:#ccc;
+}
+
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.statSquare {
+	height:150px;
+	width:150px;
+	/*margin:15px, 15px, 15px, 15px;*/
+	margin: 20px;
+	font-size:34px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align:center;
+	vertical-align:center;
+	line-height:150px;
+
+}
+
+.infoHolder {
+	margin-left:-30px;
+
+	font-family: Consolas,monaco,monospace
+}
+
+#placeholder {
+    width: 500px;
+    height: 300px;
+}
+
+.ip {
+	color:#7A777A;
+	font-size:18px;
+}
+
+.up {
+	color:green;
+}
+
+.down {
+	color:red;
+}
+
+.since {
+	font-family: Consolas,monaco,monospace;
+	font-size:16px;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+
+}
+
+.big {
+	font-size:30pt;
+
+}
+
+.circleText
+{
+width:80px;
+height:80px;
+border-radius:50%;
+font-size:10px;
+color:#fff;
+
+text-align:center;
+background:#000;
+
+}
+
+.wholeStat {
+	margin-top:10px;
+}
+
+.serverStat {
+	font-size:45px;
+}
